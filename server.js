@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
 import healthRouter from './src/routes/health.js'
-import routesRouter from './src/routes/routes.js'
+import authRouter from './src/routes/auth.js'
 
 const app = express()
 const PORT = process.env.PORT || 3000
@@ -13,7 +13,7 @@ app.use(express.json())
 
 // Routes
 app.use('/status', healthRouter)
-app.use('/routes', routesRouter)
+app.use('/auth', authRouter)
 
 // 404 handler
 app.use((req, res) => {
